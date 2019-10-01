@@ -1,4 +1,4 @@
-export class Pet {
+export interface Pet {
     name: string;
     type: string;
 }

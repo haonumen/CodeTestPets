@@ -1,1 +1,16 @@
-<p>cats works!</p>
+<div>
+  <p class="ErrorMsg" [style.display]="!hasError ? 'none': 'block'">
+    Error: There is something wrong! please check the service!!!
+  </p>
+</div>
+
+<div [hidden]="hasError">
+  <p *ngIf="petData.Male">Male</p>
+  <ul>
+      <li *ngFor="let male of petData.Male">{{male}}</li>
+  </ul>
+  <p *ngIf="petData.Female">Female</p>
+  <ul>
+    <li *ngFor="let female of petData.Female">{{female}}</li>
+  </ul>
+</div>

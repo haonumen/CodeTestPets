@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Owner } from "./model/owner"
+import { Owner } from "./models/owner"
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,7 +24,7 @@ export class PetsService {
     return this.http.get<Owner[]>(this.petsUrl)
       .pipe(
         tap(_ => console.log('fetched pets')),
-        catchError(this.handleError<Owner[]>('getPets', []))
+        catchError(this.handleError<Owner[]>('getPets', null))
       );
   }
 
