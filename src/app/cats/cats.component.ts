@@ -9,7 +9,7 @@ import { Owner } from '../models/owner';
 })
 export class CatsComponent implements OnInit {
 
-  petData: any;
+  petData = {};
   hasError: boolean = false;
   opts = {  "node":"pets",
             "type":"type",
@@ -49,12 +49,17 @@ export class CatsComponent implements OnInit {
             }
           })
           groups[group].push(pet);
-          groups[group] = groups[group].flat().sort()
+          groups[group] = groups[group].flat()
         }     
       }); 
     }
-    
-    return groups
+    for (var g in groups) {
+      if (groups.hasOwnProperty(g)) {
+        groups[g] = groups[g].sort();
+        
+      }
+    }
+     return groups
   }
 
 

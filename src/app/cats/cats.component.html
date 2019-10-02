@@ -5,11 +5,11 @@
 </div>
 
 <div [hidden]="hasError">
-  <p *ngIf="petData.Male">Male</p>
+  <p *ngIf="petData.hasOwnProperty('Male')">Male</p>
   <ul>
       <li *ngFor="let male of petData.Male">{{male}}</li>
   </ul>
-  <p *ngIf="petData.Female">Female</p>
+  <p *ngIf="petData.hasOwnProperty('Female')">Female</p>
   <ul>
     <li *ngFor="let female of petData.Female">{{female}}</li>
   </ul>
